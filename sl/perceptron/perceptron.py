@@ -5,6 +5,8 @@ Created on Tue Aug 27 22:08:29 2019
 @author: IMRANAX
 """
 
+import numpy as np
+
 class Perceptron(object):
     """Perceptron classifier.
 
@@ -51,14 +53,27 @@ class Perceptron(object):
         self.w_ = rgen.normal(loc=0.0, scale=0.01, size=1 + X.shape[1])
         self.errors_ = []
 
+        #print("#, w0, w1, w2, Sepal (L), Petal (L), target, Netinput + w0, class Prediction, w udpated")
         for _ in range(self.n_iter):
             errors = 0
+            i =1
             for xi, target in zip(X, y):
+
+                t_input = self.net_input(xi) + self.w_[0]
+
                 update = self.eta * (target - self.predict(xi))
                 self.w_[1:] += update * xi
                 self.w_[0] += update
                 errors += int(update != 0.0)
+
+
+                #print("%s, %s, %s, %s, %s, %s, %s, %s" % (_, i, self.w_, xi, target, t_input, target, update))
+
+                if i == 99:
+                    i = 0
+                i += 1
             self.errors_.append(errors)
+            print("Errors, %s" % self.errors_)
         return self
 
     def net_input(self, X):
