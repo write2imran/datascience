@@ -67,7 +67,7 @@ class Perceptron(object):
                 errors += int(update != 0.0)
 
 
-                #print("%s, %s, %s, %s, %s, %s, %s, %s" % (_, i, self.w_, xi, target, t_input, target, update))
+                print("%s, %s, %s, %s, %s, %s, %s, %s, %s" % (_, i, self.w_, xi, target, t_input, target, update,errors))
 
                 if i == 99:
                     i = 0
