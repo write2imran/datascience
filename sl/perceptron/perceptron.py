@@ -53,7 +53,7 @@ class Perceptron(object):
         self.w_ = rgen.normal(loc=0.0, scale=0.01, size=1 + X.shape[1])
         self.errors_ = []
 
-        #print("#, w0, w1, w2, Sepal (L), Petal (L), target, Netinput + w0, class Prediction, w udpated")
+        print("iter,#, w0, w1, w2, Sepal (L), Petal (L), target, Netinput + w0, class Prediction, w udpated, error")
         for _ in range(self.n_iter):
             errors = 0
             i =1

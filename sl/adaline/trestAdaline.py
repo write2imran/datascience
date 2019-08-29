@@ -19,10 +19,10 @@ y = np.where(y == 'Iris-setosa', -1, 1)
 # extract sepal length and petal length
 X = df.iloc[0:100, [0, 2]].values
 
-plotIris.plotIrisData(X)
+#plotIris.plotIrisData(X)
 
-#ppn = pp.Perceptron(eta=0.1, n_iter=10)
+ppn = pp.Perceptron(eta=0.1, n_iter=10)
 
-#ppn.fit(X, y)
+ppn.fit(X, y)
 
-#print("ppn ", ppn)
+print("ppn ", ppn)
